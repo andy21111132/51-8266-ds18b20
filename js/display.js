@@ -245,10 +245,6 @@ function reset() {
 		{
 			label: timeObj,
 			value: tempObj
-		},
-		{
-			label: timeObj,
-			value: tempObj
-		},
+		}
 	]);
 }
