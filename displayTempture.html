@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>温度监控系统</title>
+	<script type="text/javascript" src="js/temp.js"></script>
+	<script type="text/javascript" src="js/db.js"></script>
+	<link rel="stylesheet" href="./css/temp.css" media="screen" type="text/css" />
+</head>
+
+<body>
+	<center>
+<form>
+	<p id="time"></p>
+    <input type="hidden" id="txtServer" placeholder="要连接服务器" value="192.168.4.1"/>
+    <input type="hidden" id="txtPort" placeholder="要连接的串口" value="8888"/>
+    <input  type="hidden" id="sendText" value=""/>
+	<h4 id="tempInc">当前温度：** °C</h4>
+    <input type="button" id="btnConn" value="连接系统" onclick="conn();return false;"/>
+    <input type="button" id="btnClose" value="关闭连接" onclick="tcpClose();stopDisplay();clearTimeout(recvobj);clearTimeout(msgobj);return false;"/>
+    <input type="button" id="btnRecv" value="接收温度" onclick="recv();startDisplay(); return false;"/>
+	<input type="button" id="btnStopRecv" value="停止接收" onclick="stop();clearTimeout(recvobj);stopDisplay();clearTimeout(msgobj);"/><br/>
+</form>
+    <pre id="incomming"></pre>
+	<div>
+	<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+	<script src="/follow.js" type="text/javascript"></script>
+	</div>
+	<div id="banner">
+		<div id="div1">
+	  <script id="display" src="./js/display.js"></script>
+	   </div>
+	</div>
+	</center>
+</body>
+
+</html>
