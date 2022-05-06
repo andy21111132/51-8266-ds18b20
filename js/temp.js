@@ -18,7 +18,7 @@ var wsImpl = window.WebSocket || window.MozWebSocket;
 				var temp1=Number(temp);
 				// console.log(temp1);
 				if(judgeNmb.test(temp1)){
-					var tempObj=window.localStorage.setItem("temp",temp1);
+					var tempObj=window.sessionStorage.setItem("temp",temp1);
 					setTimeout(tempObj,3000);
 					tmp.innerHTML ='当前温度：'+ temp + '°C<br/>';   // 插入温度显示
 				}else{
@@ -340,7 +340,7 @@ function stopDisplay(){    //结束
 		
 function append() {
 	var timeObj=window.localStorage.getItem("time",timeObj);
-	var tempObj=window.localStorage.getItem("temp",tempObj);
+	var tempObj=window.sessionStorage.getItem("temp");
 		chart.append([
 		{ label: timeObj, value: tempObj, future: true }
 		]);
@@ -348,7 +348,7 @@ function append() {
 
 function refresh(){   
     var timeObj=window.localStorage.getItem("time",timeObj);
-	var tempObj=window.localStorage.getItem("temp",tempObj);
+	var tempObj=window.sessionStorage.getItem("temp");
     append(timeObj,tempObj);
 }  
 
@@ -364,4 +364,3 @@ function reset() {
 	{ label: 2, value: 20 }
   ]);
 }
-
