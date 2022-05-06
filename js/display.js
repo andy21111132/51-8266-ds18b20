@@ -95,6 +95,9 @@ var LineChart = function(options) {
 		var progressFragment = (progress * data.length) - Math.floor(progress * data.length);
 
 		data.forEach(function(point, i) {
+			if(data.length%5==0){
+				this.reset();
+			}
 			if (i <= progressDots) {
 				point.x += (point.targetX - point.x) * point.speed;
 				point.y += (point.targetY - point.y) * point.speed;
@@ -217,7 +220,8 @@ chart.start();
 
 function append() {
 	var timeObj = window.localStorage.getItem("time", timeObj);
-	var tempObj = window.localStorage.getItem("temp", tempObj);
+	// var tempObj = window.sessionStorage.getItem("temp", tempObj);
+	var tempObj = window.sessionStorage.getItem("temp");
 	chart.append([{
 		label: timeObj,
 		value: tempObj,
@@ -236,15 +240,15 @@ function restart() {
 
 function reset() {
 	var timeObj = window.localStorage.getItem("time", timeObj);
-	var tempObj = window.localStorage.getItem("temp", tempObj);
+	var tempObj = window.sessionStorage.getItem("temp");
 	chart.populate([ //populate
 		{
 			label: timeObj,
-			value: 0
+			value: tempObj
 		},
 		{
 			label: timeObj,
-			value: 0
+			value: tempObj
 		},
 	]);
 }
