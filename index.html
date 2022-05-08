@@ -17,7 +17,7 @@
     <input type="hidden" id="txtServer" placeholder="要连接服务器" value="192.168.4.1"/>
     <input type="hidden" id="txtPort" placeholder="要连接的串口" value="8888"/>
     <input  type="hidden" id="sendText" value=""/>
-	<h4 id="tempInc">当前温度：** °C</h4>
+	<h4 id="tempInc">当前温度：- - °C</h4>
     <input type="button" id="btnConn" value="连接系统" onclick="conn();return false;"/>
     <input type="button" id="btnClose" value="关闭连接" onclick="tcpClose();stopDisplay();clearTimeout(recvobj);clearTimeout(msgobj);return false;"/>
     <input type="button" id="btnRecv" value="接收温度" onclick="recv();startDisplay(); return false;"/>
