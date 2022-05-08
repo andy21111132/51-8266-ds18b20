@@ -110,9 +110,11 @@ var LineChart = function(options) {
 				context.fillText(point.label, point.x - (wordWidth / 2), height - 18);
 
 				if (i < progressDots && !point.future) {
+					var tempObj = window.sessionStorage.getItem("temp");
 					context.beginPath();
 					context.arc(point.x, point.y, 4, 0, Math.PI * 2);
-					context.fillStyle = 'black'; //节点颜色
+					context.fillText(tempObj+"°C", point.x-10, point.y-10);
+					context.fillStyle = '#777'; //节点颜色
 					context.fill();
 				}
 
@@ -123,7 +125,7 @@ var LineChart = function(options) {
 
 		context.save();
 		context.beginPath();
-		context.strokeStyle = 'black'; // 折线颜色
+		context.strokeStyle = '#666'; // 折线颜色
 		context.lineWidth = 2;
 		// context.stroke();
 		// context.moveTo( px, py );
@@ -198,7 +200,6 @@ var LineChart = function(options) {
 	this.append = function(points) {
 		progress -= points.length / data.length;
 		data = data.concat(points);
-
 		format();
 	}
 
@@ -245,8 +246,7 @@ function reset() {
 		{
 			label: timeObj,
 			value: tempObj
-		},
-		{
+		},{
 			label: timeObj,
 			value: tempObj
 		}
