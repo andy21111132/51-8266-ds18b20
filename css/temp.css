@@ -36,15 +36,11 @@ input{
 }
 canvas{
 	background:white;
-	/* filter: blur(5px); */
 	border-radius: 5px;
 	text-align:center;
-	/* clear:both; */
 	position:absolute;
 	top:200px;
 	left:31%;
-	/* height: 460px;
-	width: 600px; */
 	width : 600px;
 	height : 400px
 }
